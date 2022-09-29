@@ -1,2 +1,0 @@
-# MovieApp
-A Movie App.
