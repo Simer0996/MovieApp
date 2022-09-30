@@ -1,16 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-// import { Text, View } from 'react-native';
-import { NativeBaseProvider } from 'native-base'
-import AppStack from './components/stacks/AppStack'
+import { StyleSheet, Text, View } from 'react-native';
+import { NativeBaseProvider } from 'native-base';
+import Header from './layout/Header';
 
 export default function App() {
   return (
     <NativeBaseProvider>
-    {/* <Header /> */}
-    {/* <RecipesListContainer /> */}
-    <AppStack />
-    <StatusBar style='auto' />
-  </NativeBaseProvider>
+      <Header />
+      <StatusBar style="auto" />
+    </NativeBaseProvider>
   );
 }
+
 

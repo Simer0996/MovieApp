@@ -1,4 +1,2 @@
-export const APP_KEY = 'd163f2d46fb768059cec511408ebd25d'
-// export const APP_ID = 'dbc3e00d'
-export const BASE_URL = 'https://api.edamam.com/api/recipes/v2'
-export const TYPE = 'public'
+export const APP_KEY = '145a6649004cadba36ca1fb565b3a395'
+export const BASE_URL = 'https://api.themoviedb.org/3/'
