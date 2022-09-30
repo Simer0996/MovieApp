@@ -47,7 +47,7 @@ export default function Tab() {
           outputRange: inputRange.map(inputIndex => inputIndex === i ? 1 : 0.5)
         });
         const color = index === i ? useColorModeValue('#000', '#e5e5e5') : useColorModeValue('#1f2937', '#a1a1aa');
-        const borderColor = index === i ? 'cyan.500' : useColorModeValue('coolGray.200', 'gray.400');
+        const borderColor = index === i ? '#2c3e50' : useColorModeValue('coolGray.200', 'gray.400');
         return <Box borderBottomWidth="3" borderColor={borderColor} flex={1} alignItems="center" p="3" cursor="pointer">
           <Pressable onPress={() => {
             console.log(i);
