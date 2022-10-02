@@ -1,9 +1,9 @@
 import apiRequestHandler from "./apiHandler";
 
-export const getPopularMovies = async () => {
+export const getMovies = async (Type) => {
     try {
         const response = await apiRequestHandler({
-            url: 'movie/popular',
+            url: `movie/${Type}`,
             method: 'GET'
         })
         return response
@@ -11,47 +11,23 @@ export const getPopularMovies = async () => {
         console.warn(error)
     }
 };
-
-export const getNowPlayingMovies = async () => {
+export const getTvShows = async (type) => {
     try {
         const response = await apiRequestHandler({
-            url: 'movie/now_playing',
+            url: `tv/${type}`,
             method: 'GET'
         })
-        return response
+        return (response)
     } catch (error) {
         console.warn(error)
     }
 }
 
-export const getTopRatedMovies = async () => {
-    try {
-        const response = await apiRequestHandler({
-            url: 'movie/top_rated',
-            method: 'GET'
-        })
-        return response
-    } catch (error) {
-        console.warn(error)
-    }
-};
 
-export const getUpcoming = async () => {
+export const getSearchMovies = async (movieName) => {
     try {
         const response = await apiRequestHandler({
-            url: 'movie/upcoming',
-            method: 'GET'
-        })
-        return response
-    } catch (error) {
-        console.warn(error)
-    }
-}
-
-export const getSearchMovies = async () => {
-    try {
-        const response = await apiRequestHandler({
-            url: 'search/movie',
+            url: `search/movie?query=${movieName}`,
             method: 'GET'
         })
         return response
@@ -72,10 +48,10 @@ export const getMultiSearch = async () => {
     }
 }
 
-export const getSearchTv = async () => {
+export const getSearchTv = async (tvShowName) => {
     try {
         const response = await apiRequestHandler({
-            url: 'search/tv',
+            url: `search/tv?query=${tvShowName}`,
             method: 'GET'
         })
         return response
@@ -84,50 +60,6 @@ export const getSearchTv = async () => {
     }
 }
 
-export const getTvAirToday = async () => {
-    try {
-        const response = await apiRequestHandler({
-            url: 'tv/airing_today',
-            method: 'GET'
-        })
-        return response
-    } catch (error) {
-        console.warn(error)
-    }
-}
 
-export const getTvOnTheAir = async () => {
-    try {
-        const response = await apiRequestHandler({
-            url: 'tv/on_the_air',
-            method: 'GET'
-        })
-        return response
-    } catch (error) {
-        console.warn(error)
-    }
-}
 
-export const getTvPopular = async () => {
-    try {
-        const response = await apiRequestHandler({
-            url: 'tv/popular',
-            method: 'GET'
-        })
-        return response
-    } catch (error) {
-        console.warn(error)
-    }
-}
 
-export const getTopRatedTv = async () => {
-    try {
-        const response = await apiRequestHandler({
-            url: 'tv/top_rated',
-            method: 'GET'
-        })
-        return response
-    } catch (error) {
-        console.warn(error)
-    }
-}

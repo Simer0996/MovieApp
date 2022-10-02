@@ -2,18 +2,21 @@ import * as React from 'react';
 import { Dimensions, StatusBar, Animated, Pressable } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { Box, Center, useColorModeValue } from 'native-base';
+import Movies from '../pages/Movies'
+import SearchResults from '../pages/SearchResults'
+import TV from '../pages/TV'
 
 
-const FirstRoute = () => <Center flex={1} my="4">
-  This is Tab 1
+const FirstRoute = () => <Center flex={2} my="4">
+  <Movies />
 </Center>;
 
 const SecondRoute = () => <Center flex={1} my="4">
-  This is Tab 2
+  <SearchResults />
 </Center>;
 
 const ThirdRoute = () => <Center flex={1} my="4">
-  This is Tab 3
+  <TV />
 </Center>;
 
 const initialLayout = {
