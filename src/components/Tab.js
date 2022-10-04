@@ -7,17 +7,17 @@ import { SearchResults } from '../pages/SearchResults'
 import { TV } from '../pages/TV'
 
 
-const FirstRoute = () => <Center flex={2} my="4">
+const FirstRoute = () => <>
   <Movies />
-</Center>;
+</>
 
-const SecondRoute = () => <Center flex={1} my="4">
+const SecondRoute = () => <>
   <SearchResults />
-</Center>;
+</>;
 
-const ThirdRoute = () => <Center flex={1} my="4">
+const ThirdRoute = () => <>
   <TV />
-</Center>;
+</>;
 
 const initialLayout = {
   width: Dimensions.get('window').width
