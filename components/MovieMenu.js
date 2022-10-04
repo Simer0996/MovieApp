@@ -1,10 +1,10 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import SelectList from 'react-native-dropdown-select-list'
 
-export default function MovieMenu() {
+export const MovieMenu = ({ setSelectedMovieType, fetchMovies }) => {
+
+    const data = [{ key: 'now_playing', value: 'now_playing' }, { key: 'popular', value: 'popular' }, { key: 'top_rated', value: 'top_rated' }, { key: 'upcoming', value: 'upcoming' }];
+
     return (
-        <View>
-            <Text>MovieMenu</Text>
-        </View>
+        <SelectList setSelected={setSelectedMovieType} data={data} onSelect={() => fetchMovies()} />
     )
-}
+};

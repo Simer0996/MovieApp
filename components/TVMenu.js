@@ -1,10 +1,12 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import SelectList from 'react-native-dropdown-select-list'
+import { useState } from 'react'
 
-export default function TVMenu() {
+export const TVMenu = ({ setSelectedTvType, fetchTVShows }) => {
+
+    const data = [{ key: 'on_the_air', value: 'on_the_air' }, { key: 'airing_today', value: 'airing_today' }, { key: 'popular', value: 'popular' }, { key: 'top_rated', value: 'top_rated' }];
+
     return (
-        <View>
-            <Text>TVMenu</Text>
-        </View>
+        <SelectList setSelected={setSelectedTvType} data={data} onSelect={() => fetchTVShows()} />
     )
-}
+
+};

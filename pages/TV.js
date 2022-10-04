@@ -1,10 +1,25 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
+import { TVMenu } from '../components/TVMenu'
+import { getTvShows } from '../handler/api'
 
-export default function TV() {
+export function TV() {
+    const [selectedTvType, setSelectedTvType] = useState()
+    const [tVData, setTVData] = useState([])
+
+    const fetchTVShows = async () => {
+        try {
+            const data = await getTvShows(selectedTvType)
+            setTVData(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    console.log(tVData)
+
     return (
         <View>
-            <Text>TV</Text>
+            <TVMenu setSelectedTvType={setSelectedTvType} fetchTVShows={fetchTVShows} />
         </View>
     )
 }
