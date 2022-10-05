@@ -10,23 +10,20 @@ const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [movieCategories, setMovieCategories] = useState(["now_playing", "popular", "top_rated", "upcoming"])
 
-
-
   useEffect(() => {
     fetchMovies();
   }, [selectedMovieType]);
 
-
-  const fetchMovies = () => {
+  const fetchMovies = async () => {
     setIsLoading(true);
-    getContent("movie", selectedMovieType)
-      .then((res) => {
-        setMoviesData(res);
-        setIsLoading(false);
-      })
-      .catch((err) => console.log(err));
+    try {
+      const data = await getContent("movie", selectedMovieType)
+      setMoviesData(data)
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err)
+    }
   };
-
 
   return (
     <>

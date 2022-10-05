@@ -43,11 +43,9 @@ const Search = () => {
     <>
       <Center>
         <Box w="4/5" maxW="300" mt="5" mb="6">
-
           <FormControl isRequired>
             <FormControl.Label _text={{ bold: true }}>Search Movie/TV Show Name</FormControl.Label>
             <Input
-
               placeholder="i.e. James Bond, CSI"
               width="100%"
               borderRadius="4"
@@ -65,10 +63,8 @@ const Search = () => {
                   color="gray.400"
                   as={<MaterialIcons name="search" />}
                 />
-
               }
             />
-
             <FormControl.Label _text={{ bold: true }}>Choose Search Type</FormControl.Label>
             <Flex direction="row">
               <Select
@@ -99,9 +95,7 @@ const Search = () => {
               >
                 Search
               </Button>
-
             </Flex>
-
             <FormControl.ErrorMessage _text={{ fontSize: 'xs' }}
             >Error Movie/TV show name is required</FormControl.ErrorMessage>
           </FormControl>

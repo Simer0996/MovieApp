@@ -14,15 +14,19 @@ const TV = () => {
     fetchTVShows();
   }, [selectedTV]);
 
-  const fetchTVShows = () => {
+  const fetchTVShows = async () => {
     setIsLoading(true);
-    getContent("tv", selectedTV)
-      .then((res) => {
-        setTVData(res);
-        setIsLoading(false);
-      })
-      .catch((err) => console.log(err));
-  };
+    try {
+      const data = await getContent("tv", selectedTV)
+      setTVData(data);
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+
+
 
   return (
     <>
