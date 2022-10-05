@@ -24,6 +24,7 @@ const Movies = () => {
       console.log(err)
     }
   };
+  
 
   return (
     <>
