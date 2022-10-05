@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { Image, Text, View, ScrollView } from "react-native";
+import { Image } from "react-native";
+import { Box, Text } from "native-base"
 import { showDetails } from "../../handler/api";
 
 const ShowScreen = ({ route }) => {
   const { id, type } = route.params;
-  const [movie, setMovie] = useState({});
+  const [specific, setSpecific] = useState({});
 
-  useEffect(() => {
-    showDetails(type, id)
-      .then((res) => {
-        setMovie(res);
-      })
-      .catch((err) => console.log(err));
+  useEffect(async () => {
+    try {
+      const data = await showDetails(type, id)
+      setSpecific(data);
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   return (
-    <ScrollView style={{ flex: 1 }}>
-      <View style={{ padding: 30 }}>
-        <View style={{ marginBottom: 20 }}>
+    <>
+      <Box style={{ padding: 20 }}>
+        <Box style={{ marginBottom: 20 }}>
           <Text
             style={{
               fontWeight: "bold",
@@ -26,24 +28,25 @@ const ShowScreen = ({ route }) => {
               marginBottom: 40,
             }}
           >
-            {movie.title ? movie.title : movie.name}
+            {specific.title}
           </Text>
           <Image
             source={{
-              uri: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
+              uri: `https://image.tmdb.org/t/p/w500/${specific.poster_path}`,
+
             }}
             style={{ width: 250, alignSelf: "center", height: 300 }}
           />
-        </View>
-        <View style={{ paddingTop: 5 }}>
-          <Text>Popularity: {movie.overview}</Text>
-          <View style={{ flexDirection: "row", marginTop: 30 }}>
-            <Text>Popularity: {movie.popularity} | </Text>
-            <Text>Release Date: {movie.release_date}</Text>
-          </View>
-        </View>
-      </View>
-    </ScrollView>
+        </Box>
+        <Box style={{ pt: 5, alignSelf: "center" }}>
+          <Text>Overview: {specific.overview}</Text>
+          <Box style={{ flexDirection: "row", marginTop: 20, }}>
+            <Text>Popularity: {specific.popularity} | </Text>
+            <Text>Release Date: {specific.release_date}</Text>
+          </Box>
+        </Box>
+      </Box>
+    </>
   );
 };
 

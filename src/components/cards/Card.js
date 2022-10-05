@@ -30,6 +30,7 @@ const Card = ({ image, title, date, name, popularity, id, type }) => {
             <Text>Popularity: {popularity}</Text>
             <Text>Release Date: {date}</Text>
             <Button colorScheme="blue"
+              mt="1"
               w="225"
               onPress={() =>
                 navigation.navigate("Show", {
