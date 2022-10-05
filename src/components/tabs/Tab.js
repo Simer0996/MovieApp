@@ -1,10 +1,13 @@
+
+
 import * as React from 'react';
 import { Dimensions, StatusBar, Animated, Pressable } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { Box, Center, useColorModeValue } from 'native-base';
-import { Movies } from '../pages/Movies'
-import { SearchResults } from '../pages/SearchResults'
-import { TV } from '../pages/TV'
+
+import Movies from "../screens/Movies";
+import Search from "../screens/Search";
+import TV from "../screens/TV";
 
 
 const FirstRoute = () => <>
@@ -12,7 +15,7 @@ const FirstRoute = () => <>
 </>
 
 const SecondRoute = () => <>
-  <SearchResults />
+  <Search />
 </>;
 
 const ThirdRoute = () => <>
@@ -72,5 +75,6 @@ export default function Tab() {
     marginTop: StatusBar.currentHeight
   }} />;
 }
+
 
 

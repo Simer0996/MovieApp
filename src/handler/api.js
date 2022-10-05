@@ -1,4 +1,4 @@
-import apiRequestHandler from "./apiHandler";
+import apiRequestHandler from "./apiHandler"
 
 export const getContent = async (type, category) => {
     try {
@@ -12,30 +12,29 @@ export const getContent = async (type, category) => {
     }
 };
 
-export const getSearchMovie = async (type, contentType) => {
+export const showDetails = async (type, Id) => {
+
     try {
         const response = await apiRequestHandler({
-            url: `search/${type}?query=${movieName}`,
+            url: `${type}/${Id}`,
             method: 'GET'
         })
         return response
     } catch (error) {
         console.warn(error)
     }
-}
+};
 
-export const getMultiSearch = async () => {
+export const getSearchContent = async (type, query) => {
     try {
         const response = await apiRequestHandler({
-            url: 'search/multi',
+            url: `search/${type}?query=${query}`,
             method: 'GET'
         })
-        return response
+        return response.results
     } catch (error) {
         console.warn(error)
     }
 }
-
-
 
 

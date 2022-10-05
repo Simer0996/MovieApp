@@ -1,20 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { NativeBaseProvider } from 'native-base';
-import Header from './src/layout/Header';
-import Tab from './src/components/Tab';
+import { NativeBaseProvider } from "native-base";
+import AppStack from "./src/components/stacks/AppStack";
+import { StatusBar } from "expo-status-bar";
 
-// import Movies from './pages/Movies';
-import TV from './src/pages/TV';
-
-export default function App() {
+const App = () => {
   return (
     <NativeBaseProvider>
-      <Header />
-      <Tab />
-      <StatusBar style="auto" />
+      <AppStack />
+      <StatusBar style="light" />
     </NativeBaseProvider>
   );
-}
+};
 
-
+export default App;
